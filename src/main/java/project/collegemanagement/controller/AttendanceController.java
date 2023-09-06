@@ -58,15 +58,12 @@ public class AttendanceController {
 	@GetMapping("attendanceById")
 	public ResponseEntity<?> getAttendancebyID(@RequestParam() int id)
 	{
-		try {
-			var att= attendanceRepo.findById(id).get();
-			return new ResponseEntity<Attendance>(att, HttpStatus.OK);
+		var attendance= attendanceRepo.findById(id);
+		if (attendance.isEmpty()){
+			throw new BusinessException("Attendence Not Found With Id");
 		}
-		catch (Exception e)
-		{
-			BusinessException be = new BusinessException("Id not found","808");
-			return new ResponseEntity<BusinessException>(be,HttpStatus.NOT_FOUND);
-		}
+
+		return new ResponseEntity<Attendance>(attendance.get(), HttpStatus.OK);
 	}
 
 }

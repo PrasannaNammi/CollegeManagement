@@ -5,6 +5,10 @@ public class BusinessException  extends   RuntimeException{
     private  String errorcode;
     private static final long serialVersionUserID = 1;
 
+    public BusinessException(String errormessage) {
+        this.errormessage=errormessage;
+    }
+
     public String getErrormessage() {
         return errormessage;
     }

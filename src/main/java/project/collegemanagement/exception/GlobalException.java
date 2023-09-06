@@ -26,6 +26,12 @@ public class GlobalException {
 		
         return new ResponseEntity<>("A null value was encountered: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
+	@ExceptionHandler(BusinessException.class)
+	public ResponseEntity<String> handleBusinessExcep(Exception ex) {
+
+		return new ResponseEntity<>( ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+
 }
 
 
