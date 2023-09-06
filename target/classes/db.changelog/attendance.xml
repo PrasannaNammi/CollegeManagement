@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
+
+    <changeSet id="createStudentsTable" author="name">
+        <createTable tableName="Attendance">
+
+            <column name="AttendanceID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="StudentID" type="INT"/>
+            <column name="SemesterID" type="INT"/>
+            <column name="SubjectID" type="INT"/>
+            <column name="Date" type="DATE"/>
+            <column name="Status" type="VARCHAR(30)"/>
+            <column name="CondonationFee" type="MONEY"/>
+            <column name="CreatedAt" type="DATETIME"/>
+            <column name="UpdatedAt" type="DATETIME"/>
+        </createTable>
+    </changeSet>
+
+
+
+<changeSet id="insertAttendanceData1" author="name">
+<insert tableName="Attendance">
+    <column name="AttendanceID" valueNumeric="1"/>
+    <column name="StudentID" valueNumeric="1"/>
+    <column name="SemesterID" valueNumeric="1"/>
+    <column name="SubjectID" valueNumeric="1"/>
+    <column name="Date" valueDate="2023-03-15"/>
+    <column name="Status" value="Present"/>
+    <column name="CondonationFee" valueNumeric="0.00"/>
+    <column name="CreatedAt" value="2023-08-27 10:00:00"/>
+    <column name="UpdatedAt" value="2023-08-27 10:30:00"/>
+</insert>
+</changeSet>
+
+<changeSet id="insertAttendanceData2" author="name">
+<insert tableName="Attendance">
+    <column name="AttendanceID" valueNumeric="2"/>
+    <column name="StudentID" valueNumeric="1"/>
+    <column name="SemesterID" valueNumeric="1"/>
+    <column name="SubjectID" valueNumeric="2"/>
+    <column name="Date" valueDate="2023-03-15"/>
+    <column name="Status" value="Absent"/>
+    <column name="CondonationFee" valueNumeric="80.00"/>
+    <column name="CreatedAt" value="2023-08-27 14:00:00"/>
+    <column name="UpdatedAt" value="2023-08-27 14:15:00"/>
+</insert>
+</changeSet>
+
+<changeSet id="insertAttendanceData3" author="name">
+<insert tableName="Attendance">
+    <column name="AttendanceID" valueNumeric="3"/>
+    <column name="StudentID" valueNumeric="1"/>
+    <column name="SemesterID" valueNumeric="1"/>
+    <column name="SubjectID" valueNumeric="3"/>
+    <column name="Date" valueDate="2023-03-15"/>
+    <column name="Status" value="Present"/>
+    <column name="CondonationFee" valueNumeric="0.00"/>
+    <column name="CreatedAt" value="2023-08-27 16:00:00"/>
+    <column name="UpdatedAt" value="2023-08-27 16:15:00"/>
+</insert>
+</changeSet>
+
+<changeSet id="insertAttendanceData4" author="name">
+<insert tableName="Attendance">
+    <column name="AttendanceID" valueNumeric="4"/>
+    <column name="StudentID" valueNumeric="2"/>
+    <column name="SemesterID" valueNumeric="1"/>
+    <column name="SubjectID" valueNumeric="1"/>
+    <column name="Date" valueDate="2023-03-15"/>
+    <column name="Status" value="Present"/>
+    <column name="CondonationFee" valueNumeric="0.00"/>
+    <column name="CreatedAt" value="2023-08-27 17:00:00"/>
+    <column name="UpdatedAt" value="2023-08-27 17:30:00"/>
+</insert>
+</changeSet>
+
+<changeSet id="insertAttendanceData5" author="name">
+<insert tableName="Attendance">
+    <column name="AttendanceID" valueNumeric="5"/>
+    <column name="StudentID" valueNumeric="2"/>
+    <column name="SemesterID" valueNumeric="1"/>
+    <column name="SubjectID" valueNumeric="2"/>
+    <column name="Date" valueDate="2023-03-15"/>
+    <column name="Status" value="Present"/>
+    <column name="CondonationFee" valueNumeric="0.00"/>
+    <column name="CreatedAt" value="2023-08-27 18:00:00"/>
+    <column name="UpdatedAt" value="2023-08-27 18:30:00"/>
+</insert>
+</changeSet>
+</databaseChangeLog>

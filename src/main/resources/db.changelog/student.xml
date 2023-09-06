@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
+
+    <changeSet id="createStudentsTable" author="name">
+        <createTable tableName="Students">
+            <column name="StudentID" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="FirstName" type="VARCHAR(30)"/>
+            <column name="LastName" type="VARCHAR(30)"/>
+            <column name="DateOfBirth" type="DATE"/>
+            <column name="ContactInfo" type="VARCHAR(30)"/>
+            <column name="Address" type="VARCHAR(30)"/>
+            <column name="CreatedAt" type="DATETIME"/>
+            <column name="UpdatedAt" type="DATETIME"/>
+            <column name="IsActive" type="VARCHAR(30)"/>
+            <column name="IsDeleted" type="VARCHAR(30)"/>
+        </createTable>
+    </changeSet>
+            <changeSet id="insertStudentsTable" author="name">
+                <insert tableName="Students">
+                    <column name="StudentID" valueNumeric="1"/>
+                    <column name="FirstName" value="John"/>
+                    <column name="LastName" value="Doe"/>
+                    <column name="DateOfBirth" valueDate="2000-05-15"/>
+                    <column name="ContactInfo" value="john@example.com"/>
+                    <column name="Address" value="123 Main St"/>
+                    <column name="CreatedAt" value="2023-08-27 10:00:00"/>
+                    <column name="UpdatedAt" value="2023-08-27 10:30:00"/>
+                    <column name="IsActive" value="Yes"/>
+                    <column name="IsDeleted" value="No"/>
+                </insert>
+            </changeSet>
+
+
+    <changeSet id="insertStudentData2" author="name">
+        <insert tableName="Students">
+            <column name="StudentID" valueNumeric="2"/>
+            <column name="FirstName" value="Jane"/>
+            <column name="LastName" value="Smith"/>
+            <column name="DateOfBirth" valueDate="2001-08-22"/>
+            <column name="ContactInfo" value="jane@example.com"/>
+            <column name="Address" value="456 Elm St"/>
+            <column name="CreatedAt" value="2023-08-27 14:00:00"/>
+            <column name="UpdatedAt" value="2023-08-27 14:15:00"/>
+            <column name="IsActive" value="Yes"/>
+            <column name="IsDeleted" value="No"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insertStudentData3" author="name">
+        <insert tableName="Students">
+            <column name="StudentID" valueNumeric="3"/>
+            <column name="FirstName" value="Michael"/>
+            <column name="LastName" value="Johnson"/>
+            <column name="DateOfBirth" valueDate="1999-03-10"/>
+            <column name="ContactInfo" value="michael@example.com"/>
+            <column name="Address" value="789 Oak St"/>
+            <column name="CreatedAt" value="2023-08-27 15:00:00"/>
+            <column name="UpdatedAt" value="2023-08-27 15:30:00"/>
+            <column name="IsActive" value="Yes"/>
+            <column name="IsDeleted" value="No"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insertStudentData4" author="name">
+        <insert tableName="Students">
+            <column name="StudentID" valueNumeric="4"/>
+            <column name="FirstName" value="Emily"/>
+            <column name="LastName" value="Williams"/>
+            <column name="DateOfBirth" valueDate="2002-11-18"/>
+            <column name="ContactInfo" value="emily@example.com"/>
+            <column name="Address" value="101 Pine St"/>
+            <column name="CreatedAt" value="2023-08-27 16:00:00"/>
+            <column name="UpdatedAt" value="2023-08-27 16:15:00"/>
+            <column name="IsActive" value="Yes"/>
+            <column name="IsDeleted" value="No"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="insertStudentData5" author="name5">
+        <insert tableName="Students">
+            <column name="StudentID" valueNumeric="5"/>
+            <column name="FirstName" value="David"/>
+            <column name="LastName" value="Brown"/>
+            <column name="DateOfBirth" valueDate="2003-07-05"/>
+            <column name="ContactInfo" value="david@example.com"/>
+            <column name="Address" value="222 Maple Ave"/>
+            <column name="CreatedAt" value="2023-08-27 17:00:00"/>
+            <column name="UpdatedAt" value="2023-08-27 17:30:00"/>
+            <column name="IsActive" value="Yes"/>
+            <column name="IsDeleted" value="No"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
