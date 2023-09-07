@@ -2,15 +2,19 @@ package project.collegemanagement.dto;
 
 import java.time.LocalDateTime;
 
+import jakarta.validation.constraints.NotBlank;
 import project.collegemanagement.entities.Department;
 
 public class FacultyDTO {
 
 private int facultyid;
-	
+
+	@NotBlank
 	private String firstname;
+	@NotBlank
 	private String lastname;
 
+	@NotBlank
 	private String contactinfo;
 
 	private LocalDateTime createdat;

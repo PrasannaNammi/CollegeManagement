@@ -2,7 +2,10 @@ package project.collegemanagement.controller;
 
 import java.util.List;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,14 +34,15 @@ public class FacultyController {
 
 	
 	@PostMapping("/add/faculty")
-	public FacultyDTO addSub(@RequestBody FacultyDTO facultyDTO)
+	public FacultyDTO addSub(@RequestBody @Valid FacultyDTO facultyDTO)
 	{
-	 return facultyservice.addSub(facultyDTO);
+
+		return facultyservice.addSub(facultyDTO);
 	}
 
 
 	@PutMapping("update/lastName")
-	public FacultyDTO updatelname(@RequestParam() int id, @RequestParam() String lastName)
+	public FacultyDTO updatelname(@RequestParam()  int id , @RequestParam() @Valid String lastName)
 	{
 	    return facultyservice.updatelname(id, lastName);
 	}
@@ -49,6 +53,8 @@ public class FacultyController {
 
 		return facultyservice.deleteFaculty(id);
 	}
+
+
 
 
 

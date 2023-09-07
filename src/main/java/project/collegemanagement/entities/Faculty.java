@@ -9,6 +9,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name="faculties")
@@ -16,14 +18,20 @@ public class Faculty {
 
 	@Id
 	private int facultyid;
-	
+	@NotBlank(message = "First name is required")
 	private String firstname;
+	@NotBlank(message = "Last name is required")
 	private String lastname;
+	@NotBlank(message = "Contact info is required")
 	private String contactinfo;
 
+	@NotNull(message = "Created at is required")
 	private LocalDateTime createdat;
+	@NotNull(message = "Updated at is required")
 	private LocalDateTime updatedat;
+	@NotNull(message = "IsActive at is required")
 	private String isactive;
+	@NotBlank(message = "Is deleted is required")
 	private String isdeleted;
 	
 	@ManyToOne

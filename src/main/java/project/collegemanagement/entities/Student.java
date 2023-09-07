@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name="students")
@@ -13,11 +15,16 @@ public class Student {
 
 	@Id
 	private int studentid;
-	
+
+	@NotBlank (message = "First name is required")
 	private String firstname;
+	@NotBlank(message = "Last name is required")
 	private String lastname;
+	@NotNull (message = "Date of birth is required")
 	private LocalDate dateofbirth;
+	@NotBlank(message = "Contact info is required")
 	private String contactinfo;
+	@NotBlank(message = "Address info is required")
 	private String address;
 	private LocalDateTime createdat;
 	private LocalDateTime updatedat;

@@ -2,6 +2,7 @@ package project.collegemanagement.controller;
 
 import java.util.List;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,7 +29,7 @@ public class StudentController {
 }
 	
 	@PostMapping("/students")
-	public Student createStudent(@RequestBody Student student) {
+	public Student createStudent(@RequestBody  @Valid Student student) {
 	    
 	    return studentService.createStudent(student);
 	}

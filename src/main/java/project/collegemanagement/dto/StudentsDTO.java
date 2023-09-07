@@ -1,5 +1,7 @@
 package project.collegemanagement.dto;
 
+import jakarta.validation.constraints.NotBlank;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -7,10 +9,15 @@ public class StudentsDTO {
 	
 private int studentid;
 	
+	@NotBlank
 	private String firstname;
+	@NotBlank
 	private String lastname;
+	@NotBlank
 	private LocalDate dateofbirth;
+	@NotBlank
 	private String contactinfo;
+	@NotBlank
 	private String address;
 	private LocalDateTime createdat;
 	private LocalDateTime updatedat;
