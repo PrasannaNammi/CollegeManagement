@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.server.ResponseStatusException;
 
 import project.collegemanagement.entities.Student;
@@ -48,16 +50,23 @@ public class StudentService {
 	
 	//DeleteMapping
 	public ResponseEntity<Void> deleteStudentById( int id) {
-	    Optional<Student> student = studentRepo.findById(id);
-	    if (student.isPresent()) {
-	        studentRepo.deleteById(id);
-	        return ResponseEntity.noContent().build();
-	    } else {
-	        return ResponseEntity.notFound().build();
-	    }
+		Optional<Student> student = studentRepo.findById(id);
+		if (student.isPresent()) {
+			studentRepo.deleteById(id);
+			return ResponseEntity.noContent().build();
+		} else {
+			return ResponseEntity.notFound().build();
+		}
 	}
 
 
+
+
+	//Pagination
+	public List<Student> getStudentPages(@RequestParam() int pageno) {
+		var result = studentRepo.findAll(PageRequest.of(pageno, 5));
+		return result.getContent();
+	}
 }
 
 
