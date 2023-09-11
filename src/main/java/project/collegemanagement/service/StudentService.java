@@ -59,6 +59,10 @@ public class StudentService {
 		}
 	}
 
+	public Student getStudentByID(int studentId)
+	{
+		return studentRepo.findById(studentId).get();
+	}
 
 
 

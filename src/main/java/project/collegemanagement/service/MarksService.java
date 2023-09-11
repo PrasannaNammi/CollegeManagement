@@ -52,4 +52,9 @@ public class MarksService {
 		}
 	}
 
+	public int marks(int studentId)
+	{
+		return marksRepo.getMarksByStudent(studentId);
+	}
+
 }

@@ -34,16 +34,6 @@ public class BusinessException  extends   RuntimeException {
     }
 
 
-    public class AttendanceNotFoundException extends BusinessException {
-        public AttendanceNotFoundException(String message) {
-            super(message);
-        }
-    }
 
-    public class DepartmentNotFoundException extends BusinessException {
-        public DepartmentNotFoundException(String message) {
-            super(message);
-        }
-    }
 }
 

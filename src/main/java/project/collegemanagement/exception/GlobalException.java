@@ -28,19 +28,16 @@ public class GlobalException {
 	}
 
 	@ExceptionHandler(BusinessException.class)
+	public ResponseEntity<String> handleCustomBusinessExcep(Exception es) {
+
+		return new ResponseEntity<>(es.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+
+	@ExceptionHandler(BusinessException.class)
 	public ResponseEntity<String> handleBusinessExcep(Exception ex) {
-
-		return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-	}
-
-
-	@ExceptionHandler(BusinessException.AttendanceNotFoundException.class)
-	public ResponseEntity<String> handleAttendanceNotFoundException(BusinessException.AttendanceNotFoundException ex) {
-		return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
-	}
-
-	@ExceptionHandler(BusinessException.DepartmentNotFoundException.class)
-	public ResponseEntity<String> handleDepartmentNotFoundException(BusinessException.DepartmentNotFoundException ex) {
-		return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>("Sorry, this Student is Detained!", HttpStatus.NOT_FOUND);
 	}
 }
+
+
+
