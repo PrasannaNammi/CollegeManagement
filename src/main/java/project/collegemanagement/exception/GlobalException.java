@@ -9,32 +9,38 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 @ControllerAdvice
 public class GlobalException {
 	@ExceptionHandler(MethodArgumentTypeMismatchException.class)
-	public ResponseEntity<String> handleMisArgument(){
-		
-		return new ResponseEntity<>("arguments not matched",HttpStatus.BAD_REQUEST);
-	}
-	
-	@ExceptionHandler(NumberFormatException.class)
-	public ResponseEntity<String> handleNFE(){
-		
-		return new ResponseEntity<>("enter valid numbers",HttpStatus.BAD_REQUEST);
+	public ResponseEntity<String> handleMisArgument() {
+
+		return new ResponseEntity<>("arguments not matched", HttpStatus.BAD_REQUEST);
 	}
 
-	
+	@ExceptionHandler(NumberFormatException.class)
+	public ResponseEntity<String> handleNFE() {
+
+		return new ResponseEntity<>("enter valid numbers", HttpStatus.BAD_REQUEST);
+	}
+
+
 	@ExceptionHandler(NullPointerException.class)
-    public ResponseEntity<String> handleNullPointerException(NullPointerException ex) {
-		
-        return new ResponseEntity<>("A null value was encountered: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-    }
+	public ResponseEntity<String> handleNullPointerException(NullPointerException ex) {
+
+		return new ResponseEntity<>("A null value was encountered: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+
 	@ExceptionHandler(BusinessException.class)
 	public ResponseEntity<String> handleBusinessExcep(Exception ex) {
 
-		return new ResponseEntity<>( ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
+
+	@ExceptionHandler(BusinessException.AttendanceNotFoundException.class)
+	public ResponseEntity<String> handleAttendanceNotFoundException(BusinessException.AttendanceNotFoundException ex) {
+		return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+	}
+
+	@ExceptionHandler(BusinessException.DepartmentNotFoundException.class)
+	public ResponseEntity<String> handleDepartmentNotFoundException(BusinessException.DepartmentNotFoundException ex) {
+		return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
+	}
 }
-
-
-
-
-

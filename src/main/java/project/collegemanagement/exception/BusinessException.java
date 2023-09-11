@@ -1,12 +1,12 @@
 package project.collegemanagement.exception;
 
-public class BusinessException  extends   RuntimeException{
-    private  String errormessage;
-    private  String errorcode;
+public class BusinessException  extends   RuntimeException {
+    private String errormessage;
+    private String errorcode;
     private static final long serialVersionUserID = 1;
 
     public BusinessException(String errormessage) {
-        this.errormessage=errormessage;
+        this.errormessage = errormessage;
     }
 
     public String getErrormessage() {
@@ -32,4 +32,18 @@ public class BusinessException  extends   RuntimeException{
 
     public BusinessException() {
     }
+
+
+    public class AttendanceNotFoundException extends BusinessException {
+        public AttendanceNotFoundException(String message) {
+            super(message);
+        }
+    }
+
+    public class DepartmentNotFoundException extends BusinessException {
+        public DepartmentNotFoundException(String message) {
+            super(message);
+        }
+    }
 }
+
