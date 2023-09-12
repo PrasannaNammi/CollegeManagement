@@ -27,10 +27,10 @@ public class GlobalException {
 		return new ResponseEntity<>("A null value was encountered: " + ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
-	@ExceptionHandler(BusinessException.class)
-	public ResponseEntity<String> handleCustomBusinessExcep(Exception es) {
+	@ExceptionHandler(NotFoundException.class)
+	public ResponseEntity<String> handleNotFoundExcep(Exception es) {
 
-		return new ResponseEntity<>(es.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<>("There is no one with this id", HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 
 	@ExceptionHandler(BusinessException.class)

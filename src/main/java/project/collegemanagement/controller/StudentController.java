@@ -41,6 +41,11 @@ public class StudentController {
 		return studentService.deleteStudentById(id);
 
 	}
+	//pagination
+	@GetMapping("/students/{page}/{size}")
+	public  List<Student> studentsPage(@PathVariable int page,@PathVariable int size){
+		return studentService.getStudentPages(page,size);
+	}
 
 
 }

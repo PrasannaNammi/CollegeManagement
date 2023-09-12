@@ -67,8 +67,8 @@ public class StudentService {
 
 
 	//Pagination
-	public List<Student> getStudentPages(@RequestParam() int pageno) {
-		var result = studentRepo.findAll(PageRequest.of(pageno, 5));
+	public List<Student> getStudentPages(int pageno,int pagesize) {
+		var result = studentRepo.findAll(PageRequest.of(pageno, pagesize));
 		return result.getContent();
 	}
 }
